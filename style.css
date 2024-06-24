@@ -21,6 +21,7 @@ html{
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    scroll-behavior: smooth;
 }
 
 *,
@@ -97,62 +98,64 @@ body {
 }
 
 .menu_link {
+    position: relative;
     transition: all 0.2s ease;
     
 }
 
-.menu_link:hover {
-    text-decoration:underline 2px;
-}
-
-.basket {
-    position: relative;
-}
-
-.basket span {
+.menu_link::after {
+    width: 0%;
+    height: 2px;
+    content: "";
     position: absolute;
-    font-size: 11px;
-    width: 15px;
-    height: 15px;
-    background-color: black;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    bottom: 0;
-    right: 0;
+    background-color: #d86d10;
+    bottom: -5px;
+    left: 0;
+    transition: all 0.3s;
+}
+
+.menu_link:hover::after{
+    width: 100%;
+}
+
+.logo_img {
+    max-width: 150px;
 }
 
 .top {
     min-height: calc(100vh - 81px);
-    background-image: url(./images/top_bg.jpg);
+    background-image: url(https://1pofasadu.ru/wp-content/uploads/2022/02/spetstehnika-v-stroitelstve.jpeg);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: bottom center; 
 }
 
 .title {
-    font-size: 96px;
+    font-size: 76px;
     padding-top: 100px;
     margin-bottom: 10px;
+    color: rgb(255, 255, 255);
 }
 .suptitle {
-    font-size: 36px;
+    color: rgb(255, 255, 255);
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #0707075f;
+    max-width: 600px;
+    font-size: 26px;
     margin-bottom: 35px;
 }
-.top_text {
-    font-size: 13px;
-    margin-bottom: 50px;
-}
+
 .buy_btn {
     cursor: pointer;
     border: none;
-    background: linear-gradient(180deg, #BC10D8 0%, rgba(80, 0, 250, 0.93) 100%);
+    background: linear-gradient(180deg, #d87110 0%, rgba(252, 130, 8, 0.93)00%);
     display: flex;
+    border-radius: 10px;
     padding: 1px;
     text-transform: uppercase;
     transition: all 0.5s ease;
+    max-width: 400px;
 }
 
 .buy_btn:hover {
@@ -189,7 +192,7 @@ body {
     text-transform: uppercase;
     font-size: 36px;
     margin-bottom: 2px;
-    background: linear-gradient(180deg, #BC10D8 0%, rgba(80, 0, 250, 0.93) 100%);
+    background: linear-gradient(180deg, #ffd609 0%, rgba(255, 121, 4, 0.93) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -231,145 +234,52 @@ body {
 }
 
 .tabs_content_img {
+    height: 410px;
     grid-row: 1/-1;
     align-self: stretch;
     object-fit: cover;
 }
 
+.tabs_content_box {
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
 .tabs_content_box h3 {
+    width: 100%;
     font-weight: 400;
     font-size: 24px;
     margin-bottom: 5px;
 }
 
-.video {
-    grid-column: 2/3;
-    width: 280px;
-    height: 150px;
-    background-image: url(./images/content_bg.svg);
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
+.prices {
+    color: black;
     display: flex;
-    flex-direction: column;
-    justify-content: end;
-    align-items: flex-start;
-    padding: 9px 10px;
-}
-
-.video_btn {
-    margin-left: 22px;
-}
-
-.video span {
-    font-size: 13px;
-    color: #f6f4f5;
-}
-
-
-.game {
-    margin-bottom: 100px;
-}
-
-.game_title {
-    margin-bottom: 50px;
-}
-.game_inner {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr)
-}
-.game_desc {
-    padding-right: 10px;
-}
-.games_desc_title {
-    font-size: 36px;
-    text-transform: uppercase;
-    margin-bottom: 10px;
-    background: linear-gradient(180deg, #BC10D8 0%, rgba(80, 0, 250, 0.93) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    justify-content: space-between;
 
 }
-.games_desc_text {
-    margin-bottom: 24px;
+.price_title {
+    font-size: 14px;
+    color: black;
 }
-.game_link {
-    display: inline-block;
-    background: linear-gradient(180deg, #BC10D8 0%, rgba(80, 0, 250, 0.93) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    text-transform: uppercase;
-    font-weight: 700;
-    padding: 16px 15px 12px;
-    width: 225px;
-    text-align: center;
-    border: 1px solid;
-    border-image: linear-gradient(180deg, #BC10D8 0%, rgba(80, 0, 250, 0.93) 100%) 1;
-    transition: scale 0.2s ease;
+.price_value {
+    color: rgb(28, 28, 78);
+    font-weight: 800;
+    margin-bottom: 20px;
 }
 
-.game_link:hover {
-    scale: 0.95;
+.call_link {
+    padding: 10px 20px;
+    color: white;
+    background-color: #d86d10;
+    transition: all 0.3s;
 }
 
-.game_item {
-    border: 1px solid #BC10D8;
-    padding: 10px 20px 18px;
-    display: flex;
-    flex-direction: column;
-
-}
-
-.game_item_title {
-    font-size: 24px;
-    margin-bottom: 10px;
-}
-.game_item_text {
-    margin-bottom: 30px;
-}
-.game_item_link {
-    background: linear-gradient(180deg, #BC10D8 0%, rgba(80, 0, 250, 0.93) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    margin-top: auto;
-}
-
-.buy {
-    position: relative;
-    margin: 110px auto;
-    text-align: center;
-    overflow: hidden;
-}
-
-.buy_bg {
-    position: absolute;
-    z-index: -1;
-    font-size: 400px;
-    font-weight: 700;
-    line-height: 400px;
-    opacity: 0.1;
-    background: linear-gradient(180deg, #BC10D8 0%, rgba(80, 0, 250, 0.93) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    animation: line_text 6s linear 1s infinite;
-}
-
-@keyframes line_text {
-    from {
-       transform: translateX(115%); 
-       transform-origin: left center;
-    }
-    to {
-       transform: translateX(-115%); 
-       transform-origin: right center;
-    }
-}
-
-.buy .buy_btn {
-    margin: 0 auto;
-}
 
 .equipment {
+    margin-top: 100px;
     margin-bottom: 100px;
 }
 
@@ -390,13 +300,26 @@ body {
 
 .equipment_box_img {
     margin-bottom: 10px;
+    border: 1px solid #313131;
+}
+
+.equipment_box_text {
+    display: inline;
+    background-color: #d86d10;
+    padding: 5px 10px;
+    color: white;
+    transition: all 0.3s ease;
+}
+
+.equipment_box_text:hover {
+    opacity: 0.8;
 }
 
 .equipment_box_title {
     font-size: 36px;
     text-transform: uppercase;
     line-height: 50px;
-    background: linear-gradient(180deg, #BC10D8 0%, rgba(80, 0, 250, 0.93) 100%);
+    background: linear-gradient(180deg, #ffe600 0%, rgba(250, 37, 0, 0.93) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -405,7 +328,7 @@ body {
     min-height: 500px;
     margin-bottom: 100px;
     text-align: center;
-    background-image: url(./images/promo.jpg);
+    background-image: url(https://sport-marafon.ru/upload/iblock/232/1718-001.jpg);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -414,9 +337,8 @@ body {
 
 .promo_text {
     padding-top: 60px;
-    font-size: 16px;
-    color: #F6F4F5;
-    text-shadow: 0px 4px 4px #BC10D8;
+    font-size: 26px;
+    color: #d94c14;
 }
 
 .promo_btn {
@@ -428,19 +350,148 @@ body {
     color: white;
     font-size: 16px;
     font-weight: 700;
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
+    border-radius: 10px;
+    width: 150px;
+    padding: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(180deg, #BC10D8 0%, rgba(80, 0, 250, 0.93) 100%);
+    background: linear-gradient(180deg, #d86d10 0%, rgba(255, 9, 9, 0.93) 100%);
     transition: all 0.4s ease;
 }
 
 .promo_btn:hover{
     opacity: 0.5;
 }
+
+.modal {
+    position: fixed; /* фиксированное положение */
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0,0,0,0.5); /* цвет фона */
+    z-index: 1050;
+    opacity: 0; /* по умолчанию модальное окно прозрачно */
+    -webkit-transition: opacity 200ms ease-in; 
+    -moz-transition: opacity 200ms ease-in;
+    transition: opacity 200ms ease-in; /* анимация перехода */
+    pointer-events: none; /* элемент невидим для событий мыши */
+    margin: 0;
+    padding: 0;
+}
+/* при отображении модального окно */
+.modal:target {
+    opacity: 1; /* делаем окно видимым */
+	  pointer-events: auto; /* элемент видим для событий мыши */
+    overflow-y: auto; /* добавляем прокрутку по y, когда элемент не помещается на страницу */
+}
+/* ширина модального окна и его отступы от экрана */
+.modal-dialog {
+    position: relative;
+    width: auto;
+    margin: 10px;
+}
+@media (min-width: 576px) {
+  .modal-dialog {
+      max-width: 500px;
+      margin: 30px auto; /* для отображения модального окна по центру */
+  }
+}
+/* свойства для блока, содержащего контент модального окна */ 
+.modal-content {
+    position: relative;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    background-color: #fff;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    border: 1px solid rgba(0,0,0,.2);
+    border-radius: .3rem;
+    outline: 0;
+}
+@media (min-width: 768px) {
+  .modal-content {
+      -webkit-box-shadow: 0 5px 15px rgba(0,0,0,.5);
+      box-shadow: 0 5px 15px rgba(0,0,0,.5);
+  }
+}
+.modal-header {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    padding: 15px;
+    border-bottom: 1px solid #eceeef;
+}
+.modal-title {
+    margin-top: 0;
+    margin-bottom: 0;
+    line-height: 1.5;
+    font-size: 1.25rem;
+    font-weight: 500;
+}
+
+.modal-content img {
+    position: relative;
+    width: 500px;
+    height: 500px;
+    background-color: #5C5C5E;
+}
+
+.modal-content img::after {
+    position: absolute;
+    top: 50%;
+    left: 35%;
+    text-align: center;
+    transform: rotate(-35deg);
+    font-size: 32px;
+    color:rgb(172, 172, 199);
+    content: "страховка";
+}
+
+.close {
+    float: right;
+    font-family: sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 1;
+    color: #000;
+    text-shadow: 0 1px 0 #fff;
+    opacity: .5;
+    text-decoration: none;
+}
+.close:focus, .close:hover {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+    opacity: .75;
+}
+.modal-body {
+  position: relative;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1 1 auto;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    padding: 15px;
+    overflow: auto;
+}
+
 
 
 .accessories {
@@ -454,7 +505,7 @@ body {
 .accessories_text {
     font-size: 36px;
     text-transform: uppercase;
-    background: linear-gradient(180deg, #BC10D8 0%, rgba(80, 0, 250, 0.93) 100%);
+    background: linear-gradient(180deg, #d89510 0%, rgba(250, 0, 0, 0.93) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -466,16 +517,17 @@ body {
 
 .accessories_item {
     padding: 20px;
-    border: 1px solid;
-    border-image: linear-gradient(180deg, #BC10D8 0%, rgba(80, 0, 250, 0.93) 100%) 1;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 
 }
 .accessories_item_img {
+    border-radius: 50%;
 }
 .accessories_item_title {
+    margin-top: 20px;
+    text-align: center;
     font-size: 24px;
     margin-bottom: 10px;
     color: black;
@@ -495,10 +547,10 @@ body {
 .accessories_item_buy_btn {
     margin-bottom: 18px;
     border: 1px solid;
-    border-image: linear-gradient(180deg, #BC10D8 0%, rgba(80, 0, 250, 0.93) 100%) 1;
+    border-image: linear-gradient(180deg, #d87e10 0%, rgba(250, 0, 0, 0.93) 100%) 1;
     padding: 6px;
     font-weight: 700;
-    background: linear-gradient(180deg, #BC10D8 0%, rgba(80, 0, 250, 0.93) 100%);
+    background: linear-gradient(180deg, #d89f10 0%, rgba(250, 0, 0, 0.93) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     text-align: center;
@@ -531,7 +583,8 @@ body {
     width: 100%;
     border: none;
     border-bottom: 1px solid #CACAD6;
-    padding: 22px 70px 22px 0;
+    padding: 20px;
+    font-size: 18px;
 }
 
 .form_input::placeholder {
@@ -540,18 +593,33 @@ body {
     font-weight: 400;
     font-size: 13px;
     line-height: 15px;
-    color: #CACAD6;
+    color: #f1a416;
 }
 
-.form_btn {
-    width: 50px;
+.form_textarea {
+    font-size: 16px;
+    padding: 20px;
+    width: 100%;
+    height: 100px;
+}
+
+.form_textarea::placeholder {
+    font-family: 'Helvetica';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 15px;
+    color: #ee910f;
+}
+
+.form button {
+    width: 150px;
     height: 50px;
-    background-color: #CACAD6;
+    background-color: #d86d10;
     text-transform: uppercase;
     font-weight: 700;
-    color: #5C5C5E;
-    border-radius: 50%;
-    position: absolute;
+    color: #ffffff;
+    border-radius: 10px;
     right: 0;
     bottom: 5px;
 }
@@ -568,7 +636,9 @@ body {
     display: flex;
     gap: 20px;
     justify-self: end;
+    width: 70px;
 }
+
 
 @media (max-width: 1140px) {
     .footer .menu {
@@ -686,19 +756,12 @@ body {
         height: auto;
     }
 
-    .video {
-        width: auto;
-        height: 250px;
-        margin-top: 20px;
-    }
-    .game_inner {
-        grid-template-columns: repeat(1, 1fr);
-        gap: 25px;
+    .equipment {
+        margin-top: 400px;
     }
 
     .equipment_box {
         display: block;
-
     }
 
     .equipment_box_img {
